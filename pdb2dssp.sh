@@ -36,8 +36,9 @@ function findPath {
 }
 
 function calculateDssp {
-	echo "-"$2
-	dssp -i $1 -o $2.dssp
+	
+	echo "-""$( tr '[a-z]' '[A-z]' <<< "$2" )"
+	dssp -i $1 -o "$( tr '[a-z]' '[A-z]' <<< "$2" )".dssp
 }
 
 for currentJob in $@
